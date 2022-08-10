@@ -16,13 +16,13 @@ The demo shows only the hash-based similarity testing (without making actual has
 package main
 
 import (
-    "fmt"
-    "github.com/vitali-fedulov/imagehash"
-    "github.com/vitali-fedulov/images4"
+	"fmt"
+	"github.com/vitali-fedulov/imagehash"
+	"github.com/vitali-fedulov/images4"
 )
 
 const (
-    // Recommended hyper-space parameters for initial trials.
+	// Recommended hyper-space parameters for initial trials.
 	epsPct = 0.25
 	numBuckets = 4
 )
@@ -41,7 +41,7 @@ func main() {
 	icon1 := images4.Icon(img1)
 	icon2 := images4.Icon(img2)
 
-    // Hash table values.
+	// Hash table values.
 
 	// Value to save to the hash table as a key with corresponding
 	// image ids. Table structure: map[centralHash][]imageId.
@@ -72,10 +72,10 @@ func main() {
 		fmt.Println("Images are distinct.")
 	}
 
-    // Then use func Similar of package images4 for final
-    // confirmation of image similarity. That is:
-    // if images4.Similar(icon1, icon2) == true {
-    //    fmt.Println("Images are definitely similar")
-    // }
+	// Then use func Similar of package images4 for final
+	// confirmation of image similarity. That is:
+	// if images4.Similar(icon1, icon2) == true {
+	//    fmt.Println("Images are definitely similar")
+	// }
 }
 ```
