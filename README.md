@@ -4,7 +4,7 @@ This hash-table-based package provides fast and RAM-friendly rough approximation
 
 After that a slower one-to-all image comparison package [images4](https://github.com/vitali-fedulov/images4) should be used on the resulting image set produced with the approximate algorithm of package imagehash. This filtering sequence is necessary, because direct one-to-all comparison with Eucledian approach of images4 is not scalable for very large image sets.
 
-An alternative to using hashes4 package are generating multiple hash sets on different pixel sub-sets of the icon, so that search results of one hash set can be intersected with another, or several hash sets. Each intersection will improve the result. Look at var `HyperPoints10` description to understand how to create such different pixel sub-sets.
+An alternative to using images4 package are generating multiple hash sets on different pixel sub-sets of the icon, so that search results of one hash set can be joined with another, or several hash sets. Each join operation will improve the result. Look at var `HyperPoints10` description to understand how to create such different pixel sub-sets.
 
 [Go doc](https://pkg.go.dev/github.com/vitali-fedulov/imagehash) for code reference.
 
