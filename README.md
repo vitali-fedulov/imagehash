@@ -1,10 +1,12 @@
 # Fast approximate image search with Go
 
-This hash-table-based package provides fast and RAM-friendly **rough approximation** of image similarity. It is meant for datasets with billions images or more (not small image sets) as a pre-filtering step. For small image sets use package [images4](https://github.com/vitali-fedulov/images4) instead.
+This hash-table-based package provides fast and RAM-friendly **rough approximation** of image similarity. It is a pre-filtering step for datasets with billions images or more. For small image sets use package [images4](https://github.com/vitali-fedulov/images4) instead.
 
-**Important next step** is using a slower one-to-all image comparison package [images4](https://github.com/vitali-fedulov/images4) on the resulting image set produced with package imagehash. This 2 step sequence (imagehash > images4) is necessary, because direct one-to-all comparison with images4 is not scalable for very large image sets.
+**Important next step** is using a slower one-to-all image comparison package [images4](https://github.com/vitali-fedulov/images4) on the resulting image set produced with package imagehash.
 
-An alternative to using images4 package are generating multiple hash sets on different pixel sub-sets of the icon, so that search results of one hash set can be joined with another, or several hash sets. Each join operation will improve the result. Look at var `HyperPoints10` description to understand how to create such different pixel sub-sets.
+This 2 step sequence (imagehash > images4) is necessary, because direct one-to-all comparison with images4 might be slow for very large image sets.
+
+An alternative to using images4 package is generating multiple hash sets on different pixel sub-sets of the icon with package imagehash, so that search results of one hash set can be joined with another, or several hash sets. Each join operation will improve the result. Look at var `HyperPoints10` description to understand how to create such different pixel sub-sets.
 
 [Algorithm](https://vitali-fedulov.github.io/similar.pictures/algorithm-for-hashing-high-dimensional-float-vectors.html)
 
