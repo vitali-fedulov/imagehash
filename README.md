@@ -6,11 +6,11 @@ This hash-table-based package provides fast and RAM-friendly **rough approximati
 
 This 2 step sequence (imagehash > images4) is necessary, because direct one-to-all comparison with images4 might be slow for very large image sets.
 
-An alternative to using images4 package is generating multiple hash sets on different pixel sub-sets of the icon with package imagehash, so that search results of one hash set can be joined with another, or several hash sets. Each join operation will improve the result. Look at var `HyperPoints10` description to understand how to create such different pixel sub-sets.
+[Go doc](https://pkg.go.dev/github.com/vitali-fedulov/imagehash) for code reference
 
 [Algorithm](https://vitali-fedulov.github.io/similar.pictures/algorithm-for-hashing-high-dimensional-float-vectors.html)
 
-[Go doc](https://pkg.go.dev/github.com/vitali-fedulov/imagehash) for code reference.
+Note for curious users: *An alternative to using images4 package is generating multiple hash sets on different pixel sub-sets of the icon with package imagehash, so that search results of one hash set can be joined with another, or several hash sets. Each join operation will improve the result. Look at var `HyperPoints10` description to understand how to create such different pixel sub-sets.*
 
 ## Example of comparing 2 photos using imagehash
 
