@@ -1,4 +1,4 @@
-# Fast approximate image search with Go
+# Large scale image search with Go
 
 **Important:** try [images4](https://github.com/vitali-fedulov/images4) first, and ONLY IF it is slow for your image set, THEN you need this package.
 
