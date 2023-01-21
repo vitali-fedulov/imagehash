@@ -1,6 +1,6 @@
 # Large scale image search with Go
 
-**Important:** try [images4](https://github.com/vitali-fedulov/images4) first, and ONLY IF it is slow for your image set, THEN you need this package.
+**Important:** Try [images4](https://github.com/vitali-fedulov/images4) first, and ONLY IF it searches slowly in your image set, THEN you need this package.
 
 *(Just do not forget to save your icons in images4, so you do not have to perform the very slow image file decoding again - this is the purpose of the icons). Another "exotic" use-case for imagehash package is when you have little memory or little compute.*
 ___
