@@ -1,6 +1,8 @@
 # Fast approximate image search with Go
 
-**Recommendation:** try [images4](https://github.com/vitali-fedulov/images4) first, and ONLY IF it is slow for your image set, THEN you need this package. Another "exotic" use-case for imagehash package is when you have little memory or little compute.
+**Recommendation:** try [images4](https://github.com/vitali-fedulov/images4) first, and ONLY IF it is slow for your image set, THEN you need this package.
+
+*(Just do not forget to save your icons in images4, so you do not have to perform the very slow image file reads again - this is the purpose of the icons). Another "exotic" use-case for imagehash package is when you have little memory or little compute.*
 ___
 
 This hash-table-based package provides fast and RAM-friendly **rough approximation** of image similarity. It is a pre-filtering **first step** for VERY LARGE image sets (millions or billions of images).
