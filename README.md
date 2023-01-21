@@ -1,8 +1,11 @@
 # Fast approximate image search with Go
 
-This hash-table-based package provides fast and RAM-friendly **rough approximation** of image similarity. It is a pre-filtering **first step** for large image sets (billions images or more). For small image sets use package [images4](https://github.com/vitali-fedulov/images4).
+**Rule of thumb:** try [images4](https://github.com/vitali-fedulov/images4) first, and ONLY IF it is slow for your image set, THEN you need this package. Another, likely exotic, use-case for imagehash package is when you have little memory or little compute.
+___
 
-**Second step** is using a more precise package [images4](https://github.com/vitali-fedulov/images4) on the resulting image set produced with package imagehash.
+This hash-table-based package provides fast and RAM-friendly **rough approximation** of image similarity. It is a pre-filtering **first step** for VERY LARGE image sets (millions or billions of images).
+
+**Second step** is using a more precise **and slower** package [images4](https://github.com/vitali-fedulov/images4) on the resulting image set produced with package imagehash.
 
 This 2 step sequence (imagehash > images4) is necessary, because direct one-to-all comparison with images4 might be slow for very large image sets.
 
