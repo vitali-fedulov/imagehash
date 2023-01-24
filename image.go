@@ -2,7 +2,6 @@ package imagehash
 
 import (
 	"fmt"
-	"image"
 
 	"github.com/vitali-fedulov/images4"
 )
@@ -41,14 +40,13 @@ func Open(path string, params ...HyperParams) (Image, error) {
 	icon := images4.Icon(img)
 	centralHash := CentralHash(icon, HyperPoints10, eps, buckets)
 	hashSet := HashSet(icon, HyperPoints10, eps, buckets)
-	return Image{Image: img, Icon: icon, CentralHash: centralHash, HashSet: hashSet}, nil
+	return Image{Icon: icon, CentralHash: centralHash, HashSet: hashSet}, nil
 }
 
-// Image is a convenience wrapper for holding everything imagehash and images4 needs.
+// Image is a convenience wrapper for holding objects necessary for computing image similarity.
 //
 // Call Similar() on an Image object for quick similarity computation instead of images4.Similar().
 type Image struct {
-	Image       image.Image
 	Icon        images4.IconT
 	CentralHash uint64
 	HashSet     []uint64
