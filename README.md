@@ -1,21 +1,20 @@
 # Large scale image search with Go
 
-**Important:** Try [images4](https://github.com/vitali-fedulov/images4) first, and ONLY IF it searches slowly in your image set, THEN you need this package.
+This hash-table-based package provides fast and RAM-friendly **rough approximation** of image similarity for VERY LARGE image collections (millions and more). Another use-case is for computers with little memory or computing power.
 
-*(Just do not forget to save your icons in images4, so you do not have to perform the very slow image file decoding again - this is the purpose of the icons). Another "exotic" use-case for imagehash package is when you have little memory or little compute.*
-___
+The package is a pre-filtering **first step**. The **second step** requires a more precise and slower package [images4](https://github.com/vitali-fedulov/images4) on the image set produced in the first step. This 2 step sequence (imagehash > images4) is necessary, because direct one-to-all comparison with images4 might be slow for very large image collections.
 
-This hash-table-based package provides fast and RAM-friendly **rough approximation** of image similarity. It is a pre-filtering **first step** for VERY LARGE image sets (millions or billions of images).
+**Recommendation:** Try to use [images4](https://github.com/vitali-fedulov/images4) directly, and ONLY IF it searches slowly in your image set, THEN you need this package. *(Just do not forget to save your icons in images4, so you do not have to perform the very slow image file decoding again - this is the purpose of the icons).*
 
-**Second step** is using a more precise **and slower** package [images4](https://github.com/vitali-fedulov/images4) on the resulting image set produced with package imagehash.
-
-This 2 step sequence (imagehash > images4) is necessary, because direct one-to-all comparison with images4 might be slow for very large image sets.
+---
 
 [Go doc](https://pkg.go.dev/github.com/vitali-fedulov/imagehash) for code reference
 
 [Algorithm](https://vitali-fedulov.github.io/similar.pictures/algorithm-for-hashing-high-dimensional-float-vectors.html)
 
 Note for curious users: *An alternative to using images4 package is generating multiple hash sets on different pixel sub-sets of the icon with package imagehash, so that search results of one hash set can be joined with another, or several hash sets. Each join operation will improve the result. Look at var `HyperPoints10` description to understand how to create such different pixel sub-sets.*
+
+---
 
 ## Example of comparing 2 photos using imagehash
 
