@@ -4,7 +4,7 @@ This hash-table-based package provides fast and RAM-friendly **rough approximati
 
 The package is a pre-filtering **first step**. The **second step** requires a more precise and slower package [images4](https://github.com/vitali-fedulov/images4) on the image set produced in the first step. This 2 step sequence (imagehash > images4) is necessary, because direct one-to-all comparison with images4 might be slow for very large image collections.
 
-**Recommendation:** Try to use [images4](https://github.com/vitali-fedulov/images4) directly, and ONLY IF it searches slowly in your image set, THEN you need this package. *(Just do not forget to save your icons in images4, so you do not have to perform the very slow image file decoding again - this is the purpose of the icons).*
+**Recommendation:** Try to use [images4](https://github.com/vitali-fedulov/images4) directly, and ONLY IF it searches slowly in your image set, THEN you need this package.
 
 ---
 
