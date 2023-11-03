@@ -2,19 +2,11 @@
 
 This hash-table-based package provides fast and RAM-friendly **rough approximation** of image similarity for VERY LARGE image collections (millions and more). Another use-case is for computers with little memory or computing power.
 
-The package is a pre-filtering **first step**. The **second step** requires a more precise and slower package [images4](https://github.com/vitali-fedulov/images4) on the image set produced in the first step. This 2 step sequence (imagehash > images4) is necessary, because direct one-to-all comparison with images4 might be slow for very large image collections.
+The package is a pre-filtering **first step**. The **second step** requires a more precise and slower package [images4](https://github.com/vitali-fedulov/images4) on the image set produced in the first step. This 2 step sequence (imagehash > images4) is necessary, because direct one-to-all comparison with images4 might be slow for very large image collections. For smaller image sets it is better to skip the first step altogether.
 
-**Recommendation:** Try to use [images4](https://github.com/vitali-fedulov/images4) directly, and ONLY IF it searches slowly in your image set, THEN you need this package.
-
----
-
-[Go doc](https://pkg.go.dev/github.com/vitali-fedulov/imagehash) for code reference
+[Go doc](https://pkg.go.dev/github.com/vitali-fedulov/imagehash)
 
 [Algorithm](https://vitali-fedulov.github.io/similar.pictures/algorithm-for-hashing-high-dimensional-float-vectors.html)
-
-Note for curious users: *An alternative to using images4 package is generating multiple hash sets on different pixel sub-sets of the icon with package imagehash, so that search results of one hash set can be joined with another, or several hash sets. Each join operation will improve the result. Look at var `HyperPoints10` description to understand how to create such different pixel sub-sets.*
-
----
 
 ## Example of comparing 2 photos using imagehash
 
@@ -87,3 +79,6 @@ func main() {
 	// }
 }
 ```
+
+## For advanced users
+An alternative to using images4 package is generating multiple hash sets on different pixel sub-sets of the icon with package imagehash, so that search results of one hash set can be joined with another, or several hash sets. Each join operation will improve the result. Look at var `HyperPoints10` description to understand how to create such different pixel sub-sets.
