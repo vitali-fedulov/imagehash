@@ -1,4 +1,4 @@
-# Large scale image search with Go
+# Large scale image similarity search (Golang)
 
 This package provides fast and RAM-friendly **hash-table-based rough approximation** of image similarity for VERY LARGE image collections (millions and more). Another use-case is for computers with little memory or computing power.
 
