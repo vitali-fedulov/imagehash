@@ -2,7 +2,7 @@
 
 This package provides fast and RAM-friendly **hash-table-based rough approximation** of image similarity for VERY LARGE image collections (millions and more). Another use-case is for computers with little memory or computing power.
 
-The package is a pre-filtering **first step**. The **second step** requires a more precise and slower package [images4](https://github.com/vitali-fedulov/images4) on the image set produced in the first step. This 2 step sequence (imagehash > images4) is necessary, because direct one-to-all comparison with images4 might be slow for very large image collections. For smaller image sets it is better to skip the first step altogether.
+The package is a pre-filtering **first step**. The **second step** requires a more precise but slower package [images4](https://github.com/vitali-fedulov/images4) on the image set produced in the first step. This 2 step sequence (imagehash > images4) is necessary, because direct one-to-all comparison with images4 might be slow for very large image collections. For smaller image sets it is better to skip the first step altogether.
 
 [Go doc](https://pkg.go.dev/github.com/vitali-fedulov/imagehash)
 
