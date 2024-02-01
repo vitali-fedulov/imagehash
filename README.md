@@ -4,6 +4,8 @@ This package provides fast and RAM-friendly **hash-table-based rough approximati
 
 The package is a pre-filtering **first step**. The **second step** requires a more precise but slower package [images4](https://github.com/vitali-fedulov/images4) on the image set produced in the first step. This 2 step sequence (imagehash > images4) is necessary, because direct one-to-all comparison with images4 might be slow for very large image collections. For smaller image sets it is better to skip the first step altogether.
 
+imagehash can be sufficient for near-duplicate detection, when `const numBuckets` is set to a very high value.
+
 [Go doc](https://pkg.go.dev/github.com/vitali-fedulov/imagehash)
 
 [Algorithm](https://vitali-fedulov.github.io/similar.pictures/algorithm-for-hashing-high-dimensional-float-vectors.html)
