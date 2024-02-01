@@ -23,7 +23,20 @@ import (
 
 const (
 	// Recommended hyper-space parameters for initial trials.
+
+	// I usually do not change epsPct parameter.
+	// epsPct defines the range of uncertainty at hypercube borders,
+	// when a nearest similar point may end up in the nearby hypercube,
+	// thus having a different hash. The larger the value, the larger
+	// the uncertainty range is. Larger values may produce larger hashSets,
+	// which could be compute-expensive. 0.25 corresponds to 25% of bucket
+	// width.
 	epsPct = 0.25
+
+	// Experiment by increasing numBuckets from 4 to 230 or higher.
+	// It will make your searches faster, more precise, but maybe too strict.
+	// It coresponds to the level of granularity of hyperspace quantization.
+	// The higher the value, the more granular is N-space sub-division.
 	numBuckets = 4
 )
 
