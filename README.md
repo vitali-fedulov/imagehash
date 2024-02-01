@@ -37,6 +37,9 @@ const (
 	// It will make your searches faster, more precise, but maybe too strict.
 	// It coresponds to the level of granularity of hyperspace quantization.
 	// The higher the value, the more granular is N-space sub-division.
+	// This example uses 10-dimensional vectors, splitting the 10D space into
+	// 4^10 = 1048576 hypercubes. 4 splits one pixel brightness values into
+	// 4 buckets. For numBuckets = 230, there will be 4×10²³ hypercubes.
 	numBuckets = 4
 )
 
