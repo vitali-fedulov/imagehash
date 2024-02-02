@@ -4,7 +4,7 @@ This package provides fast and RAM-friendly **hash-table-based rough approximati
 
 The package is a pre-filtering **first step**. The **second step** requires a more precise but slower package [images4](https://github.com/vitali-fedulov/images4) on the image set produced in the first step. This 2 step sequence (imagehash > images4) is necessary, because direct one-to-all comparison with images4 might be slow for very large image collections. For smaller image sets it is better to skip the first step altogether.
 
-imagehash-package can be sufficient for **resized image detection**, when `const numBuckets` is set to a very high value.
+imagehash-package could be sufficient for **resized image detection**, when `const numBuckets` is set to a very high value. But do a few tests on real image sets to get the parameters right, because in the Example below only 10 dimensions (pixels in Y channel) are used from the total 11x11*3=363 pixel values in the icon. This could be under-representative for some images, when bucket width is very small (high numBuckets value).
 
 [Go doc](https://pkg.go.dev/github.com/vitali-fedulov/imagehash)
 
