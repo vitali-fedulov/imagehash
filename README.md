@@ -1,6 +1,6 @@
 # Large scale image similarity search (Golang)
 
-This package is a fast and RAM-friendly hash-table-based image comparison tool **for large image collections** (thousands and more). Resized and near-duplicate images can be found with it.
+This is a fast and RAM-friendly hash-table-based image comparison package **for large image collections** (thousands and more). Resized and near-duplicate images can be found with it.
 
 When numBuckets parameter is low (~4), the package is a **rough pre-filtering first step**. Then the **second precise step** is needed with [images4](https://github.com/vitali-fedulov/images4) on the image set produced in the first step. This 2 step sequence (imagehash > images4) is necessary, because direct one-to-all comparison with images4 might be slow for very large image collections. For small image sets it is OK to skip the first step altogether.
 
