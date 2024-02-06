@@ -1,10 +1,10 @@
 # Large scale image similarity search (Golang)
 
-This package provides fast and RAM-friendly **hash-table-based rough approximation** of image similarity for VERY LARGE image collections (millions and more). Another use-case is for computers with little memory or computing power.
+This package is a fast and RAM-friendly hash-table-based image comparison tool **for large image collections** (thousands and more).
 
-The package is a pre-filtering **first step**. The **second step** requires a more precise but slower package [images4](https://github.com/vitali-fedulov/images4) on the image set produced in the first step. This 2 step sequence (imagehash > images4) is necessary, because direct one-to-all comparison with images4 might be slow for very large image collections. For smaller image sets it is better to skip the first step altogether.
+When numBuckets parameter is low (~4), the package is a **rough pre-filtering first step**. Then the **second precise step** is needed with [images4](https://github.com/vitali-fedulov/images4) on the image set produced in the first step. This 2 step sequence (imagehash > images4) is necessary, because direct one-to-all comparison with images4 might be slow for very large image collections. For small image sets it is OK to skip the first step altogether.
 
-The second step could probably be skipped for **resized image detection**, by setting `const numBuckets` to a very high value (~200). Be sure to do a few tests on real image sets to get the parameters right, because in the example below only 10 dimensions (pixels in Y channel) are used from the total 11x11*3=363 pixel values in the icon. This could be under-representative for some images, when bucket width is very small (high numBuckets value).
+When numBuckets is very high (~200), be sure to do a few tests, because, as in the example below, only 10 dimensions (pixels in Y channel) are used from the total 11x11*3=363 pixel values in the icon. This could under-represent some images, because bucket width is very small for high numBuckets.
 
 [Go doc](https://pkg.go.dev/github.com/vitali-fedulov/imagehash)
 
