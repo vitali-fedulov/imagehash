@@ -37,7 +37,7 @@ const (
 
 	// Experiment by increasing numBuckets from 4 to 230 or higher.
 	// It will make your searches faster, more precise, but maybe too strict.
-	// It coresponds to the level of granularity of hyperspace quantization.
+	// It corresponds to the level of granularity of hyperspace quantization.
 	// The higher the value, the more granular is N-space sub-division.
 	// This example uses 10-dimensional vectors, splitting the 10-space into
 	// 4^10 = 1048576 hypercubes. 4 splits one pixel brightness values into
