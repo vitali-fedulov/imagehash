@@ -49,13 +49,9 @@ const (
 
 func main() {
 
-	// Paths to photos.
-	path1 := "1.jpg"
-	path2 := "2.jpg"
-
-	// Open photos (skipping error handling for clarity).
-	img1, _ := images4.Open(path1)
-	img2, _ := images4.Open(path2)
+	// Open and decode photos (skipping error handling for clarity).
+	img1, _ := images4.Open("1.jpg")
+	img2, _ := images4.Open("2.jpg")
 
 	// Icons are compact image representations needed for comparison.
 	icon1 := images4.Icon(img1)
