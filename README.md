@@ -10,6 +10,8 @@ When numBuckets is very high (~200), be sure to do a few tests, because, as in t
 
 [Algorithm](https://vitali-fedulov.github.io/similar.pictures/algorithm-for-hashing-high-dimensional-float-vectors.html)
 
+[Demo](https://vitali-fedulov.github.io/similar.pictures/) (images4)
+
 ## Example of comparing 2 photos using imagehash
 
 The demo shows only the hash-based similarity testing (without making actual hash table). But hash table is implied in full implementation.
