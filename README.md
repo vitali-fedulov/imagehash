@@ -1,4 +1,4 @@
-# Scalable image similarity search with Go &#10132; [LATEST version](https://github.com/vitali-fedulov/imagehash2)
+# Fast similar image search with Go &#10132; [LATEST version](https://github.com/vitali-fedulov/imagehash2)
 
 This is a fast and RAM-friendly hash-table-based image comparison package **for large image collections** (thousands and more). Resized and near-duplicate images can be found with it.
 
