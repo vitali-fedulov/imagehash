@@ -1,16 +1,24 @@
-# Large scale image similarity search (Golang)
+# Large scale image similarity search with Go &#10132; [LATEST version](https://github.com/vitali-fedulov/imagehash2)
 
 This is a fast and RAM-friendly hash-table-based image comparison package **for large image collections** (thousands and more). Resized and near-duplicate images can be found with it.
 
-When numBuckets parameter is low (~4), the package is a **rough pre-filtering first step**. Then the **second precise step** is needed with [images4](https://github.com/vitali-fedulov/images4) on the image set produced in the first step. This 2 step sequence (imagehash > images4) is necessary, because direct one-to-all comparison with images4 might be slow for very large image collections. For small image sets it is easier to skip the first step altogether.
-
-When numBuckets is very high (~200), be sure to do a few tests, because, as in the example below, only 10 dimensions (pixels in Y channel) are used from the total 11x11*3=363 pixel values in the icon. This could under-represent some images, because bucket width is very small for high numBuckets.
-
-[Go doc](https://pkg.go.dev/github.com/vitali-fedulov/imagehash)
+[Demo](https://vitali-fedulov.github.io/similar.pictures/) (image search and clustering)
 
 [Algorithm](https://vitali-fedulov.github.io/similar.pictures/algorithm-for-hashing-high-dimensional-float-vectors.html)
 
-[Demo](https://vitali-fedulov.github.io/similar.pictures/) (images4)
+[Go doc](https://pkg.go.dev/github.com/vitali-fedulov/imagehash)
+
+Major (semantic) versions have their own repositories and are mutually incompatible:
+| Major version | Repository | Comment |
+| ----------- | ---------- | ----------|
+| 1 | imagehash (this) | has a minor generalization defect, but still very good |
+| 2 | [imagehash2](https://github.com/vitali-fedulov/imagehash2) | recommended, with the generalization defect fixed |
+
+## Parameters
+
+When `numBuckets` parameter is low (~4), the package is a **rough pre-filtering first step**. Then the **second precise step** is needed with [images4](https://github.com/vitali-fedulov/images4) on the image set produced in the first step. This 2 step sequence (imagehash > images4) is necessary, because direct one-to-all comparison with images4 might be slow for very large image collections. For small image sets it is easier to skip the first step altogether.
+
+When `numBuckets` is very high (~200), be sure to do a few tests, because, as in the example below, only 10 dimensions (pixels in Y channel) are used from the total 11x11*3=363 pixel values in the icon. This could under-represent some images, because bucket width is very small for high numBuckets. This under-representation issue is fixed in version 2 (imagehash2).
 
 ## Example of comparing 2 photos using imagehash
 
@@ -28,15 +36,6 @@ import (
 const (
 	// Recommended hyper-space parameters for initial trials.
 
-	// I usually do not change epsPct parameter.
-	// epsPct defines the range of uncertainty at hypercube borders,
-	// when a nearest similar point may end up in the nearby hypercube,
-	// thus having a different hash. The larger the value, the larger
-	// the uncertainty range is. Larger values may produce larger hashSets,
-	// which could be compute-expensive. 0.25 corresponds to 25% of bucket
-	// width.
-	epsPct = 0.25
-
 	// Experiment by increasing numBuckets from 4 to 230 or higher.
 	// It will make your searches faster, more precise, but maybe too strict.
 	// It corresponds to the level of granularity of hyperspace quantization.
@@ -45,6 +44,15 @@ const (
 	// 4^10 = 1048576 hypercubes. 4 splits one pixel brightness values into
 	// 4 buckets. For numBuckets = 230, there will be 4×10²³ possible hypercubes.
 	numBuckets = 4
+
+	// I usually do not change epsPct parameter.
+	// epsPct defines the range of uncertainty at hypercube borders,
+	// when a nearest similar point may end up in the nearby hypercube,
+	// thus having a different hash. The larger the value, the larger
+	// the uncertainty range is. Larger values may produce larger hashSets,
+	// which could be compute-expensive. 0.25 corresponds to 25% of bucket
+	// width.
+	epsPct = 0.25
 )
 
 func main() {
